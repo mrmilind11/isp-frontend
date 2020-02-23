@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Observable } from 'rxjs';
 import { IspModel } from './../../../models/isp.model';
 import { Injectable } from '@angular/core';
@@ -22,6 +23,9 @@ export class IspDatabaseService {
   }
   public fetchTotalISPCount(): Observable<ITotalISPCountResponse> {
     return this.http.get<ITotalISPCountResponse>('/api/isp/count');
+  }
+  public downloadISPDetail(id: string) {
+    window.open(`${environment.apiPoint}/api/isp/download/${id}`, '_blank');
   }
 }
 

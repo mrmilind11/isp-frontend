@@ -44,15 +44,17 @@
             {{ispData.description}}
         </div>
         <div class="action-section">
-            <button mat-raised-button color="primary">
-                <mat-icon class="mrh">launch</mat-icon>
-                <span>Link</span>
-            </button>
+            <a [href]="ispData.url" target="_blank">
+                <button mat-raised-button color="primary">
+                    <mat-icon class="mrh">launch</mat-icon>
+                    <span>Link</span>
+                </button>
+            </a>
             <button mat-raised-button color="primary">
                 <mat-icon class="mrh">share</mat-icon>
                 <span>Share</span>
             </button>
-            <button mat-raised-button color="primary">
+            <button mat-raised-button color="primary" (click)="downloadIspDetails()">
                 <mat-icon class="mrh">get_app</mat-icon>
                 <span>Download</span>
             </button>

@@ -1,4 +1,5 @@
 export interface IspModel {
+    _id: string;
     name: string;
     description: string;
     lowest_price: string;

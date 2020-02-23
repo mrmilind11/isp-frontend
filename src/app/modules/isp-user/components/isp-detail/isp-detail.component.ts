@@ -1,3 +1,4 @@
+import { IspDatabaseService } from './../../../shared/services/isp-database.service';
 import { IspModel } from './../../../../models/isp.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -8,7 +9,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class IspDetailComponent implements OnInit {
   /*************************************************** Constructor **********************************************/
-  constructor() { }
+  constructor(
+    private ispDatabaseService: IspDatabaseService
+  ) { }
   /*************************************************** Properties ***********************************************/
   @Input() ispData: IspModel;
   @Output() hideDetails = new EventEmitter<void>();
@@ -17,6 +20,9 @@ export class IspDetailComponent implements OnInit {
   }
   public hideISPDetails() {
     this.hideDetails.emit();
+  }
+  public downloadIspDetails() {
+    this.ispDatabaseService.downloadISPDetail(this.ispData._id)
   }
 
 }
