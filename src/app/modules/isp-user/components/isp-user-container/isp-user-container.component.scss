@@ -7,3 +7,18 @@
 .sidenav{
     width: 30%;
 }
+@media(max-width:1500px){
+   .sidenav{
+        width: 40%;
+   }
+}
+@media(max-width:1100px){
+    .sidenav{
+        width: 60%;
+    }
+}
+@media(max-width:700px){
+    .sidenav{
+        width: 100%;
+    }
+}

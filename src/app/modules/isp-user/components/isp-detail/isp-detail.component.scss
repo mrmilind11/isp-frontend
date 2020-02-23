@@ -1,0 +1,53 @@
+.isp-detail-container{
+    padding:25px;
+    display:flex;
+    flex-direction: column;
+}
+.detail-card{
+    padding:0px;
+    .detail-card-head{
+        flex:1;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .detail-card-content{
+        display:flex;
+        flex-direction: row;
+        padding:15px;
+        .image-section{
+            img{
+                width:150px;
+                height:150px;
+                border-radius:25px;
+            }
+        }
+        .info-section{
+            .info-row{
+                padding:8px 0;
+            }
+        }
+    }
+}
+.rating-section{
+    display: flex;
+    flex-direction: row;
+    margin: 16px 0px;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+}
+.description-section{
+    margin:16px 0px;
+}
+.action-section{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin:16px 0px;
+}
+.mrh{
+    margin-right:8px;
+}
