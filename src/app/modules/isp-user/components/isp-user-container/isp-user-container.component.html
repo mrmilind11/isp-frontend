@@ -1,6 +1,7 @@
 <mat-sidenav-container class="flex">
     <mat-sidenav-content>
-        <isp-list></isp-list>
+        <isp-list (openDetails)="openDetails($event)"></isp-list>
+        <div class="sidenav-close-btn"></div>
     </mat-sidenav-content>
     <mat-sidenav [mode]="sidenavMode" position="end" [opened]="true" class="sidenav">
         <isp-detail></isp-detail>

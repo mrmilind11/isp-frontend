@@ -10,7 +10,8 @@ export class IspUserContainerComponent implements OnInit {
   /*************************************** Constructor ******************************/
   constructor() { }
   /*************************************** Properties *******************************/
-  private sidenavMode: 'side' | 'over' = 'side';
+  public sidenavMode: 'side' | 'over' = 'side';
+  public ispDetailData = '';
   /*************************************** Methods **********************************/
   ngOnInit() {
     this.setSideNavMode();
@@ -22,7 +23,9 @@ export class IspUserContainerComponent implements OnInit {
     })
   }
   private setSideNavMode() {
-    this.sidenavMode = window.screen.width <= 1400 ? 'over' : 'side';
+    this.sidenavMode = window.innerWidth <= 1400 ? 'over' : 'side';
   }
+  public openDetails() {
 
+  }
 }
