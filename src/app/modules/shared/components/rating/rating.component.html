@@ -1,0 +1,14 @@
+<div class="flex-row layout-align-start-center">
+    <ng-container *ngIf="editable">
+        <div *ngFor="let value of ratingList;let index=index">
+            <mat-icon class="cursor-point" (mouseenter)="onHoverEnter(index)" (mouseleave)="onHoverOut()"
+                (click)="ratingSelected(index)">
+                {{value?'star':'star_border'}}</mat-icon>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!editable">
+        <div *ngFor="let value of ratingList;let index=index">
+            <mat-icon>{{value?'star':'star_border'}}</mat-icon>
+        </div>
+    </ng-container>
+</div>

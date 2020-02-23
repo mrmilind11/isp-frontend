@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./isp-list.component.scss']
 })
 export class IspListComponent implements OnInit {
-
+  /********************************************* Constructor ******************************************/
   constructor() { }
-
+  /********************************************* Properties *******************************************/
+  /********************************************* Methods **********************************************/
   ngOnInit() {
   }
 
