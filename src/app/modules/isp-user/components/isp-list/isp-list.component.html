@@ -26,12 +26,25 @@
 
         </div>
     </div>
-    <mat-card>
+    <mat-card class="list-card">
         <mat-card-content>
-            <div *ngFor="let a of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]">
-                <p>isp-list works!</p>
-
-            </div>
+            <ng-container *ngFor="let a of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]">
+                <div class="isp-card">
+                    <div class="isp-img-avatar">
+                        <img src="https://s3-ap-southeast-1.amazonaws.com/bsy/iportal/images/airtel-logo-white-text-vertical.jpg"
+                            alt="">
+                    </div>
+                    <div class="isp-name">Airtel</div>
+                    <div class="isp-rating">Rating</div>
+                    <div class="isp-price">&#8377;700</div>
+                    <div class="isp-action-btn">
+                        <button mat-icon-button>
+                            <mat-icon>play_circle_filled</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+            </ng-container>
         </mat-card-content>
     </mat-card>
 

@@ -16,6 +16,47 @@
 .search-bar{
     width: 320px;
 }
+.list-card{
+    min-height: 300px;
+    height:calc(100vh - 300px);
+    overflow: auto;
+}
+.isp-card{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 5px;
+    font-size:16px;
+    .isp-img-avatar{
+        flex:0.08;
+        padding-right: 10px;
+        img{
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+        }
+    }
+    .isp-name{
+        flex:.42;
+        padding: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .isp-rating{
+        flex:.25;
+        padding:10px;
+    }
+    .isp-price{
+        flex:.15;
+        padding:10px;
+    }
+    .isp-action-btn{
+        flex:.05;
+    }
+}
 .mr24{
     margin-right:24px;
 }
@@ -24,7 +65,7 @@
 }
 @media(max-width:1100px){
     .isp-list-container{
-        padding:25px 50px
+        padding:25px 50px;
     }
     .filter-section{
         justify-content: flex-start;
@@ -32,9 +73,17 @@
     }
 }
 @media(max-width:600px){
+    .isp-list-container{
+        padding:25px;
+    }
     .sort-order-section{
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+    }
+    .isp-card{
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
     }
 }
