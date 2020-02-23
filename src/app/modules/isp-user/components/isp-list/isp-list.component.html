@@ -33,7 +33,7 @@
             <ng-container *ngFor="let ispData of ispList;let index=index;let last=last">
                 <div class="isp-card">
                     <div class="isp-img-avatar">
-                        <img [src]="ispData.image" alt="">
+                        <img [src]="ispData.image" alt="" defaultIspImage>
                     </div>
                     <div class="isp-name" title="{{ispData.name}}">{{ispData.name}}</div>
                     <div class="isp-rating">
