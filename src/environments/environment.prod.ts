@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiPoint: 'https://murmuring-eyrie-55472.herokuapp.com'
 };
