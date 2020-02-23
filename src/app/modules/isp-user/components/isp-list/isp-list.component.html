@@ -1,25 +1,27 @@
 <div class="isp-list-container">
     <div class="filter-section">
         <mat-form-field floatLabel="never" class="search-bar mr24">
-            <input matInput type="text" placeholder="Search (by ISP name, pricing, rating)">
+            <input id="searchBar" matInput type="text" placeholder="Search (by ISP name, pricing, rating)"
+                name="searchBarInput" [(ngModel)]="filterHash.searchText" (ngModelChange)="filterChanged()">
         </mat-form-field>
         <div class="sort-order-section">
             <div class="flex-row layout-align-start-center mr24">
                 <mat-icon class="mrh">sort</mat-icon>
                 <mat-form-field floatLabel="never">
-                    <mat-select placeholder="Sort by">
-                        <mat-option>Name</mat-option>
-                        <mat-option>Price</mat-option>
-                        <mat-option>Rating</mat-option>
+                    <mat-select id="sortBy" placeholder="Sort by" name="sortBySelect" [(ngModel)]="filterHash.sortBy"
+                        (selectionChange)="filterChanged()">
+                        <mat-option *ngFor="let option of sortOptionList" [value]="option.value">{{option.name}}
+                        </mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div class="flex-row layout-align-start-center">
-                <mat-icon class="mr">swap_vert</mat-icon>
+                <mat-icon class="mrh">swap_vert</mat-icon>
                 <mat-form-field floatLabel="never">
-                    <mat-select placeholder="Order">
-                        <mat-option>Ascending</mat-option>
-                        <mat-option>Descending</mat-option>
+                    <mat-select id="orderBy" placeholder="Order" name="orderBySelect" [(ngModel)]="filterHash.orderBy"
+                        (selectionChange)="filterChanged()">
+                        <mat-option *ngFor="let option of orderOptionList" [value]="option.value">{{option.name}}
+                        </mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -28,24 +30,23 @@
     </div>
     <mat-card class="list-card">
         <mat-card-content>
-            <ng-container *ngFor="let a of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]">
+            <ng-container *ngFor="let ispData of ispList;let index=index;let last=last">
                 <div class="isp-card">
                     <div class="isp-img-avatar">
-                        <img src="https://s3-ap-southeast-1.amazonaws.com/bsy/iportal/images/airtel-logo-white-text-vertical.jpg"
-                            alt="">
+                        <img [src]="ispData.image" alt="">
                     </div>
-                    <div class="isp-name">Airtel</div>
+                    <div class="isp-name" title="{{ispData.name}}">{{ispData.name}}</div>
                     <div class="isp-rating">
-                        <rating [value]="3"></rating>
+                        <rating [value]="ispData.rating"></rating>
                     </div>
-                    <div class="isp-price">&#8377;700</div>
+                    <div class="isp-price">&#8377;{{ispData.lowest_price}}</div>
                     <div class="isp-action-btn">
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="openDetails(index)" title="Show details" color="primary">
                             <mat-icon>play_circle_filled</mat-icon>
                         </button>
                     </div>
                 </div>
-                <mat-divider></mat-divider>
+                <mat-divider *ngIf="!last"></mat-divider>
             </ng-container>
         </mat-card-content>
     </mat-card>

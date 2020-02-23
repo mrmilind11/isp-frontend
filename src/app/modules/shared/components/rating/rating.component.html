@@ -8,7 +8,7 @@
     </ng-container>
     <ng-container *ngIf="!editable">
         <div *ngFor="let value of ratingList;let index=index">
-            <mat-icon>{{value?'star':'star_border'}}</mat-icon>
+            <mat-icon color="accent">{{value?'star':'star_border'}}</mat-icon>
         </div>
     </ng-container>
 </div>

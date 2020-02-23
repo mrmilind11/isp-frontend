@@ -7,6 +7,7 @@ import { IspUserRoutingModule } from './isp-user-routing.module';
 import { IspUserContainerComponent } from './components/isp-user-container/isp-user-container.component';
 import { IspListComponent } from './components/isp-list/isp-list.component';
 import { IspDetailComponent } from './components/isp-detail/isp-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { IspDetailComponent } from './components/isp-detail/isp-detail.component
     CommonModule,
     IspUserRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class IspUserModule { }

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { IspModel } from './../../../../models/isp.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { MatSidenav } from '@angular/material';
 @Component({
   selector: 'isp-user-container',
   templateUrl: './isp-user-container.component.html',
@@ -11,7 +13,8 @@ export class IspUserContainerComponent implements OnInit {
   constructor() { }
   /*************************************** Properties *******************************/
   public sidenavMode: 'side' | 'over' = 'side';
-  public ispDetailData = '';
+  public ispDetailData: IspModel;
+  @ViewChild('ispDetailSidenav', { static: false }) private ispDetailSidenav: MatSidenav;
   /*************************************** Methods **********************************/
   ngOnInit() {
     this.setSideNavMode();
@@ -25,7 +28,11 @@ export class IspUserContainerComponent implements OnInit {
   private setSideNavMode() {
     this.sidenavMode = window.innerWidth <= 1400 ? 'over' : 'side';
   }
-  public openDetails() {
-
+  public showDetails(data: IspModel) {
+    this.ispDetailData = data;
+    this.ispDetailSidenav.open();
+  }
+  public hideDetails() {
+    this.ispDetailSidenav.close();
   }
 }

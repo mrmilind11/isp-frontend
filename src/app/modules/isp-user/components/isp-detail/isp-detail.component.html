@@ -1,62 +1,61 @@
 <div class="isp-detail-container">
     <div class="flex-row layout-align-start-center mb">
-        <mat-icon class="mrh">keyboard_arrow_left</mat-icon>
-        <div>Hide details</div>
+        <mat-icon class="mrh" (click)="hideISPDetails()">keyboard_arrow_left</mat-icon>
+        <div (click)="hideISPDetails()">Hide details</div>
     </div>
-    <mat-card class="detail-card">
-        <mat-card-content>
-            <mat-toolbar color="primary">
-                <mat-toolbar-row>
-                    <div class="detail-card-content">Airtel</div>
-                </mat-toolbar-row>
-            </mat-toolbar>
-            <div class="detail-card-content">
-                <div class="info-section flex-column flex layout-align-center-start">
-                    <div class="flex-row layout-align-start-center flex-wrap info-row">
-                        <mat-icon class="mrh">wifi</mat-icon>
-                        <div>Max Speed : {{'500 Mbps'}}</div>
+    <ng-container *ngIf="ispData">
+        <mat-card class="detail-card">
+            <mat-card-content>
+                <mat-toolbar color="primary">
+                    <mat-toolbar-row>
+                        <div class="detail-card-content">{{ispData.name}}</div>
+                    </mat-toolbar-row>
+                </mat-toolbar>
+                <div class="detail-card-content">
+                    <div class="info-section flex-column flex layout-align-center-start">
+                        <div class="flex-row layout-align-start-center flex-wrap info-row">
+                            <mat-icon class="mrh">wifi</mat-icon>
+                            <div>Max Speed : {{ispData.max_speed}}</div>
+                        </div>
+                        <div class="flex-row layout-align-start-center flex-wrap info-row">
+                            <mat-icon class="mrh">phone</mat-icon>
+                            <div>{{ispData.contact_number}}</div>
+                        </div>
+                        <div class="flex-row layout-align-start-center flex-wrap info-row">
+                            <mat-icon class="mrh">email</mat-icon>
+                            <div>{{ispData.email}}</div>
+                        </div>
+                        <div class="flex-row layout-align-start-center flex-wrap info-row">
+                            <mat-icon class="mrh">attach_money</mat-icon>
+                            <div>&#8377;{{ispData.lowest_price}}</div>
+                        </div>
                     </div>
-                    <div class="flex-row layout-align-start-center flex-wrap info-row">
-                        <mat-icon class="mrh">phone</mat-icon>
-                        <div>020 2161 123</div>
-                    </div>
-                    <div class="flex-row layout-align-start-center flex-wrap info-row">
-                        <mat-icon class="mrh">email</mat-icon>
-                        <div>mail@airtel.in</div>
-                    </div>
-                    <div class="flex-row layout-align-start-center flex-wrap info-row">
-                        <mat-icon class="mrh">attach_money</mat-icon>
-                        <div>&#8377;700</div>
+                    <div class="image-section">
+                        <img [src]="ispData.image" alt="">
                     </div>
                 </div>
-                <div class="image-section">
-                    <img src="https://s3-ap-southeast-1.amazonaws.com/bsy/iportal/images/airtel-logo-white-text-vertical.jpg"
-                        alt="">
-                </div>
-            </div>
-        </mat-card-content>
-    </mat-card>
-    <div class="rating-section">
-        <div class="mrh">Rating:</div>
-        <rating [value]="4"></rating>
-    </div>
-    <div class="description-section">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perferendis velit nemo reiciendis quasi,
-        aliquid minima sapiente laborum quam, fugit officia hic saepe rerum omnis veritatis deserunt, aut totam
-        suscipit?
-    </div>
-    <div class="action-section">
-        <button mat-raised-button color="primary">
-            <mat-icon class="mrh">launch</mat-icon>
-            <span>Link</span>
-        </button>
-        <button mat-raised-button color="primary">
-            <mat-icon class="mrh">share</mat-icon>
-            <span>Share</span>
-        </button>
-        <button mat-raised-button color="primary">
-            <mat-icon class="mrh">get_app</mat-icon>
-            <span>Download</span>
-        </button>
-    </div>
+            </mat-card-content>
+        </mat-card>
+        <div class="rating-section">
+            <div class="mrh">Rating:</div>
+            <rating [value]="ispData.rating"></rating>
+        </div>
+        <div class="description-section">
+            {{ispData.description}}
+        </div>
+        <div class="action-section">
+            <button mat-raised-button color="primary">
+                <mat-icon class="mrh">launch</mat-icon>
+                <span>Link</span>
+            </button>
+            <button mat-raised-button color="primary">
+                <mat-icon class="mrh">share</mat-icon>
+                <span>Share</span>
+            </button>
+            <button mat-raised-button color="primary">
+                <mat-icon class="mrh">get_app</mat-icon>
+                <span>Download</span>
+            </button>
+        </div>
+    </ng-container>
 </div>
