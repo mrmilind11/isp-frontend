@@ -1,27 +1,46 @@
-# IspApp
+# ISP App
+This code is made for frontend side of ISP management project. It is build using Angular (version 8.3.8) and Material.
+It provides functionalities to query ISP list, view details and download the ISP information.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+##Pre-requisite
+* Your system should have npm version >6.x.x and node version > 11.x.x.
+* If running locally, the server side code should be present and running. Can be downloaded from [here](https://github.com/mrmilind11/isp-backend)
 
-## Development server
+##Installation
+* Clone or download the repo from github.
+* Open the folder in terminal
+* Run this to install dependencies  
+    ```
+    npm i
+    ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##Serve Locally
+* Run the command
+    ```
+        ng serve --port=15000
+    ```
+* By default it takes port=4000 as server. Make sure your server code is running on the same.
+* To modify the server access point change 'apiPoint' to desired in 'environment.ts'
 
-## Code scaffolding
+##Production build
+* To do production build. Run
+    ```
+        ng build --prod
+    ```
+* On production build it uses a heroku server for api calls. 
+* To modify the access point change 'apiPoint' to desired in 'environment.prod.ts'
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##Compatibility
+* App is tested on firefox and chrome browser on MacOs and Windows platform.
+* For best experience use updated Firefox/Chrome browser.
 
-## Build
+##Features
+* View ISP list
+* Query ISP list using search. You can search by name, rating or price.
+* Sorting can be done by Name, Price and Rating. Also order can be set.
+* Details of ISP can be viewed in side navigation.
+* Details of ISP can be downloaded as well.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##Responsive Design
+* App is made responsive to support all screen sizes.
+* Tested screen width range from 320px to 1920px;

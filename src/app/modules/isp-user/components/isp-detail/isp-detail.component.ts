@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material';
 import { IspDatabaseService } from './../../../shared/services/isp-database.service';
 import { IspModel } from './../../../../models/isp.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -10,7 +11,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class IspDetailComponent implements OnInit {
   /*************************************************** Constructor **********************************************/
   constructor(
-    private ispDatabaseService: IspDatabaseService
+    private ispDatabaseService: IspDatabaseService,
+    private matSnackBar: MatSnackBar
   ) { }
   /*************************************************** Properties ***********************************************/
   @Input() ispData: IspModel;
@@ -24,5 +26,7 @@ export class IspDetailComponent implements OnInit {
   public downloadIspDetails() {
     this.ispDatabaseService.downloadISPDetail(this.ispData._id)
   }
-
+  public shareIspDetail() {
+    this.matSnackBar.open('This feature is currently in development', undefined, { duration: 2000 });
+  }
 }
